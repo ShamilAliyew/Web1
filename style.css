@@ -1,0 +1,15 @@
+.main{
+    color: red;
+}
+.div{
+    border: 1px solid black;
+}
+.header{
+    height: 200px;
+}
+.header h1{color: gray;}
+.header p{
+    color: black;
+    margin-top: -10px;
+    margin-left: 30px;
+}
