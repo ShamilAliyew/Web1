@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap Label Values</title>
+</head>
+<body>
+    <label for="name"> Name</label>
+    <input type="text" id="name" value="Shamil">
+    <br><br>
+    <label for="password"> Password</label>
+    <input type="text" id="password" value="12345">
+    <br><br>
+    <button onclick="swapValues()">Swap</button>
+
+    <script>
+        function swapValues(){
+            const nameInput=document.getElementById("name")
+            const passwordInput = document.getElementById("password")
+
+            const temp=nameInput.value
+            nameInput.value=passwordInput.value
+            passwordInput.value=temp
+        }
+    </script>
+</body>
+</html>

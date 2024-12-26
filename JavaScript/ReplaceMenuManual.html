@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Move Menu</title>
+</head>
+<style>
+    #menu ul li{
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: blanchedalmond;
+    }
+    #arrow{
+        display: none;
+        padding: 5px 10px;
+        background-color: blanchedalmond;
+    }
+</style>
+<body>
+<div id="menu"></div>
+<div id="arrow">
+    <input type="submit" value="->" onclick="moveRight(0)">
+    <input type="submit" value="<-" onclick="moveLeft(1)">
+    <input type="submit" value="->" onclick="moveRight(1)">
+    <input type="submit" value="<-" onclick="moveLeft(2)">
+</div>
+<br><br>
+<label>Move the existing menues</label>
+<button onclick="showArrow()">Edit</button>
+
+
+
+<script>
+    let arr=["Menu1","Menu2","Menu3"]
+
+    function getMenu(){
+        let menu ='<ul>'
+        for (let value of arr){
+            menu+='<li>'+value+'</li>'
+        }
+        menu+='</ul>'
+        return menu;
+    }
+    function showMenu(){
+        let divContent = document.getElementById("menu")
+        divContent.innerHTML=getMenu();
+    }
+    showMenu()
+    function showArrow(){
+        let arrow=document.getElementById("arrow")
+        arrow.style.display='inline-block';
+        arrow.style.padding='15px 75px';
+        arrow.style.backgroundColor="red";
+    }
+
+    function moveRight(index){
+        let element=arr.splice(index+1,1)
+        arr.splice(index,0,element[0])
+        showMenu()
+
+    }
+    function moveLeft(index){
+        let element=arr.splice(index-1,1)
+        arr.splice(index,0,element[0])
+        showMenu()
+    }
+
+
+</script>
+</body>
+</html>

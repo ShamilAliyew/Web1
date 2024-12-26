@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Menu</title>
+</head>
+<style>
+    #menu ul li{
+        padding: 5px 10px;
+        display: inline-block;
+        background-color: blanchedalmond;
+    }
+    #arrow  {
+        div{
+            padding: 5px 10px;
+            color: black;
+            float: left;
+        }
+        display: none;
+    }
+
+</style>
+<body>
+<div id="menu"></div>
+<div id="arrow"></div>
+
+
+<br>
+<label > Edit The Menu List</label>
+<input type="submit" value="Edit" onclick="showArrows()">
+<br>
+<br>
+<label > Add New Menu</label>
+<input type="text" name="newMenu" id="newMenu">
+<input type="submit"  onclick="addMenu()">
+
+<script>
+    let arr=["Menu1","Menu2","Menu3"];
+
+    function getMenu() {
+        let menu = "<ul>";
+        let arrow = '<div id="arrow">';
+
+        for (let i = 0; i < arr.length; i++) {
+
+            menu += '<li>' + arr[i] + '</li>';
+
+            if (i == 0) {
+
+                arrow += '<div><a href="#" onclick="moveRight(' + i + ')">-></a></div>';
+            } else if (i == (arr.length - 1)) {
+
+                arrow += '<div><a href="#" onclick="moveLeft(' + i + ')"><-</a></div>';
+            } else {
+
+                arrow += '<div><a href="#" onclick="moveLeft(' + i + ')"><-|</a> <a href="#" onclick="moveRight(' + i + ')">-></a></div>';
+                // arrow += '<div><a href="#" onclick="moveRight(' + i + ')">-></a></div>';
+            }
+        }
+
+
+        menu += "</ul>";
+        arrow += "</div>";
+
+        return menu + arrow;
+    }
+
+
+    function showMenu(){
+        let divContent=document.getElementById("menu");
+        divContent.innerHTML=getMenu();
+    }
+    showMenu();
+
+
+    function addMenu(){
+        let newMenu =document.getElementById("newMenu");
+        arr.push(newMenu.value);
+        newMenu.value='';
+        showMenu();
+    }
+
+
+    function showArrows(){
+        let a=document.getElementById("arrow");
+        a.style.display='inline-block';
+        a.style.padding='15px 75px';
+        a.style.backgroundColor="blanchedalmond";
+
+    }
+
+    function moveRight(index){
+        let current = arr[index]
+        let replace = arr[index+1]
+        arr.splice(index,2,replace,current)
+        showMenu()
+    }
+
+    function moveLeft(index){
+        let current = arr[index]
+        let replace = arr[index-1]
+        arr.splice(index-1,2,current,replace);
+        showMenu();
+    }
+    showMenu()
+</script>
+</body>
+</html>

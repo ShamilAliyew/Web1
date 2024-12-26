@@ -1,0 +1,39 @@
+.container{
+    border: 1px solid black;
+    display: grid;
+    grid-gap:1px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 3fr;
+    grid-template-areas:  "a a a a a"
+                          "b d d d c"
+                          "b g g f c"
+                          "e e e e e"
+}
+[class^="block-"]{
+    background-color:burlywood;
+    border-radius: 10px;
+    border: 1px dashed black;
+    
+}
+.block-1{
+    grid-area: a;
+}
+.block-2{
+    grid-area: b;
+}
+.block-3{
+    grid-area: d;
+    min-height: 400px;
+}
+.block-4{
+    grid-area: c;
+}
+.block-5{
+    grid-area: e;
+}
+.block-6{
+    grid-area: g;
+}
+.block-7{
+    grid-area: f;
+    min-height: 100px;
+}

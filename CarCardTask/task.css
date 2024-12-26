@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+}
+.container{
+   
+}
+a{
+    text-decoration: none;
+}
+.col{
+    
+    background-color: burlywood; 
+    gap: 2px; 
+    width: 32% ;
+    float: left;
+     margin: 1px; 
+     min-height: 500px;
+
+    
+    padding: 20px;
+    /* box-sizing: border-box; */
+    
+   
+}
+.col:hover{
+    box-shadow: black 5px 5px;
+    
+    
+    
+    
+
+
+    /* border: 1px solid black; */
+}
+@media screen and (max-width:600px){
+    .col{
+        width: 100% ;
+        float: left;
+    }
+}
+
+
+
+
+
+/*.col-1{width: 25%;float: left;}
+.col-2{ width: 50%;float: left;}
+.col-3{ width: 75%;float: left;}
+.col-4{width: 100%;float: left;}*/
